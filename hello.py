@@ -1,16 +1,19 @@
-from flask import Flask
-
+from flask import Flask,request
+from requests import itemRequest
 app = Flask(__name__)
+
+httpMethods = ['POST', 'GET', 'PUT', 'DELETE']
+
 
 @app.route('/')
 def index():
-    return "hello world"
+    return "app is running"
 
-@app.route('/second')
-def second():
-    return "second"
+@app.route('/items',methods = httpMethods)
+def items():
+    var = itemRequest.getItems(request.method)
+    return var
 
-# this is a comment
 
 if __name__ == "__main__":
     app.run(debug=True)

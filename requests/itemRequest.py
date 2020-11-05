@@ -11,3 +11,4 @@ def getItems(method):
         items = {"success":True}
         return Response(json.dumps(items),  mimetype='application/json')
     
+# new comment
